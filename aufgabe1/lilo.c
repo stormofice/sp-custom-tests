@@ -15,7 +15,7 @@ printf(
     "\x1B[33mIf you find a bug in your code and want to use track-origins, "
     "lower the numbers (16384) -> (256)\n");
 
-printf("\x1B[36m:=:Static constants test:=:\n");
+printf("\x1B[36m:=: Static constants test :=:\n");
 
 if (head) {
   printf("\x1B[31m[ERROR:%3d] HEAD should be NULL\n", __LINE__);
@@ -43,7 +43,7 @@ if (mr != 0) {
 }
 printf("\x1B[32m[PASSED:%3d] Constants test\n", __LINE__);
 
-printf("\x1B[36m:=:Static negative numbers test:=:\n");
+printf("\x1B[36m:=: Static negative numbers test :=:\n");
 for (int i = -1; i > -65536; i--) {
   int x = insertElement(i);
   if (-1 != x) {
@@ -55,7 +55,7 @@ for (int i = -1; i > -65536; i--) {
 
 printf("\x1B[32m[PASSED:%3d] Negative numbers\n", __LINE__);
 
-printf("\x1B[36m:=:Sequential test, this could take a while:=:\n");
+printf("\x1B[36m:=: Sequential test, this could take a while :=:\n");
 for (int i = 0; i < 32768; i++) {
   int x = insertElement(i);
   if (i != x) {
@@ -95,7 +95,7 @@ if (head) {
 
 printf("\x1B[32m[PASSED:%3d] Sequential remove\n", __LINE__);
 
-printf("\x1B[36m:=:Repeating patterns test:=:\n");
+printf("\x1B[36m:=: Repeating patterns test :=:\n");
 
 for (int i = 0; i < 1024; i++) {
   if (head) {
@@ -121,7 +121,7 @@ for (int i = 0; i < 1024; i++) {
 }
 
 printf("\x1B[32m[PASSED:%3d] Single element shuffle\n", __LINE__);
-printf("\x1B[36m:=:Static order test:=:\n");
+printf("\x1B[36m:=: Static order test :=:\n");
 
 for (int i = 1; i < 64; i += 2) {
   int t = insertElement(i);
