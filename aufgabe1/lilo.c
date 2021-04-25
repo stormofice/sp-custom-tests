@@ -6,14 +6,11 @@
 //#define next nachfolger
 // Uncomment and change the following statement, if the name for the value of a value in the list *is not* value
 //#define value val
-printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.0 :=:=:\n");
-printf("\x1B[35mhttps://github.com/stormofice/sp-custom-tests\n");
-printf(
-    "\x1B[33m!!! Disable track-origins=yes in your valgrind flags or this will "
-    "take *forever*!!!\n");
-printf(
-    "\x1B[33mIf you find a bug in your code and want to use track-origins, "
-    "lower the numbers (16384) -> (256)\n");
+    printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.0 :=:=:\n");
+    printf("\x1B[35mhttps://github.com/stormofice/sp-custom-tests\n");
+    printf("\x1B[31m!!! Remove this test from your main function before submitting, I take no responsibility for errors !!!\n");
+    printf("\x1B[33m!!! Disable track-origins=yes in your valgrind flags or this will take *forever*!!!\n");
+    printf("\x1B[33mIf you find a bug in your code and want to use track-origins, lower the numbers (32768) -> (256)\n");
 
 printf("\x1B[36m:=: Static constants test :=:\n");
 
