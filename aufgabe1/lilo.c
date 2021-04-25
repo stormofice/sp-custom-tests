@@ -1,4 +1,11 @@
 // INSERT THIS INTO YOUR OWN MAIN FUNCTION
+// !!! IF YOUR CODE DOES NOT COMPILE DUE TO WRONG STRUCT NAMES, CHANGE THEM WITH DEFINE AS SHOWN BELOW !!!
+// To use this define, uncomment the line below and change "node" to whatever you named your listelement
+//#define listenelement node
+// Uncomment and change the following statement, if the name for the next element in the list *is not* next
+//#define next nachfolger
+// Uncomment and change the following statement, if the name for the value of a value in the list *is not* value
+//#define value val
 printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.0 :=:=:\n");
 printf("\x1B[35mhttps://github.com/stormofice/sp-custom-tests\n");
 printf(
