@@ -4,9 +4,11 @@
 //#define listenelement node
 // Uncomment and change the following statement, if the name for the next element in the list *is not* next
 //#define next nachfolger
-// Uncomment and change the following statement, if the name for the value of a value in the list *is not* value
+// Uncomment and change the following statement, if the name for the value of a element in the list *is not* value
 //#define value val
-printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.0 :=:=:\n");
+// Uncomment and change the following statement, if the name for the head node of your list *is not* head
+//#define head root
+printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.1 :=:=:\n");
 printf("\x1B[35mhttps://github.com/stormofice/sp-custom-tests\n");
 printf("\x1B[31m!!! Remove this test from your main function before submitting, I take no responsibility for errors !!!\n");
 printf("\x1B[33m!!! Disable track-origins=yes in your valgrind flags or this will take *forever*!!!\n");
