@@ -1,3 +1,4 @@
+// INSERT THIS INTO YOUR OWN MAIN FUNCTION
 printf("\x1B[35m:=:=: [Custom Test] lilo.c v1.0 :=:=:\n");
 printf("\x1B[35mhttps://github.com/stormofice/sp-custom-tests\n");
 printf(
