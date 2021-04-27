@@ -30,7 +30,7 @@ int __wrap_main(int argc, const char* argv[]) {
     }
     int mt = insertElement(0);
     if (mt != 0) {
-        printf(RED "[ERROR:%3d] Expected: -1, but was %3d\n", __LINE__, mt);
+        printf(RED "[ERROR:%3d] Expected: 0, but was %3d\n", __LINE__, mt);
         printf("\x1B[0m");
         abort();
     }
