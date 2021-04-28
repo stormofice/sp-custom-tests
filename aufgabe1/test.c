@@ -19,7 +19,7 @@ int __wrap_main(int argc, const char* argv[]) {
     printf("! I do not take responsibilty for errors that may result of this !\n");
 
     printf(ORANGE "Press any key to continue\n");
-    if(argc < 2) {
+    if (argc <= 1) {
         getchar();
     } else {
         printf("Skipping\n");
