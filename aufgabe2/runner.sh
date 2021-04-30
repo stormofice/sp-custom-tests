@@ -27,13 +27,9 @@ else
     mkdir raw
     cd raw
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/10_ascii_way_too_long -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/10_unicode_way_too_long -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_mixed -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_too_long -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_valid -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_mixed -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_too_long -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_valid -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/length_check -q --show-progress
     cd ..
 fi
