@@ -52,9 +52,11 @@ for f in raw/*; do
     echo -n -e  "\x1b[0m"
     ts=$(date +%s%N)
 	(./wsort < $f) &> local_out
+    tt=$((($(date +%s%N) - $ts) / 1000000))
 	echo -e "\x1B[36m$f local solution took: $tt ms"
     ts=$(date +%s%N)
     (./wsort-ref < $f) &> reference_out
+    tt=$((($(date +%s%N) - $ts) / 1000000))
     echo -e "\x1B[36m$f reference solution took: $tt ms"
     if [[ $(diff -q local_out reference_out) ]]; then
         (( failed++ ))
