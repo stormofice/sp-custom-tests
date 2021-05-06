@@ -16,7 +16,7 @@ if [ ! -f wsort-ref ]; then
     exit
 fi
 
-echo -e "\x1B[36m:=:=: [Custom Test] wsort.c v1.0 :=:=:"
+echo -e "\x1B[36m:=:=: [Custom Test] wsort.c v1.1 :=:=:"
 echo -e "https://github.com/stormofice/sp-custom-tests"
 
 echo -n -e "\x1b[33m"
@@ -33,14 +33,29 @@ else
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/length_check -q --show-progress
     cd ..
 fi
+
+# v1.0 upgrade
+if [ "raw/null_byte_city" ]; then
+    cd raw
+    echo "Downloading new words lists"
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/null_byte_city -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/very_long_unicode -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_sanitized-q --show-progress
+    cd ..
+fi;
+
 echo -n -e  "\x1b[0m"
 
 for f in raw/*; do
     echo -n -e "\x1b[33m"
     echo "Testing $f"
     echo -n -e  "\x1b[0m"
-    (./wsort < $f) &> local_out
+    ts=$(date +%s%N)
+	(./wsort < $f) &> local_out
+	echo -e "\x1B[36m$f local solution took: $tt ms"
+    ts=$(date +%s%N)
     (./wsort-ref < $f) &> reference_out
+    echo -e "\x1B[36m$f reference solution took: $tt ms"
     if [[ $(diff -q local_out reference_out) ]]; then
         (( failed++ ))
         echo -n -e "\x1b[33m"
