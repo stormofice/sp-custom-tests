@@ -39,7 +39,6 @@ if [ "raw/null_byte_city" ]; then
     cd raw
     echo "Downloading new words lists"
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/null_byte_city -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/very_long_unicode -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_sanitized-q --show-progress
     cd ..
 fi;
