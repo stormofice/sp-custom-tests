@@ -11,4 +11,4 @@ Please feel free to contribute, review or ask questions.
 * aufgab2:
   * Navigate into the folder that contains `wsort` or `wsort.c` and `wsort-ref`
   * Execute the following in a linux environment
-  * `bash <(curl -s https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/runner.sh)`
+  * `bash <(curl -s https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/run.sh)`
