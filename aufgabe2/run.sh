@@ -37,6 +37,7 @@ fi
 # v1.0 upgrade
 if [ "raw/16k_unicode_sanitized" ]; then
     # skip
+    echo "Found new word lists"
 else
     cd raw
     echo "Downloading new words lists"
