@@ -35,12 +35,15 @@ else
 fi
 
 # v1.0 upgrade
-if [ "raw/null_byte_city" ]; then
+if [ "raw/16k_unicode_sanitized" ]; then
+    # skip
+    echo "Found new word lists"
+else
     cd raw
     echo "Downloading new words lists"
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_sanitized-q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_sanitized -q --show-progress
     cd ..
-fi;
+fi
 
 echo -n -e  "\x1b[0m"
 
@@ -49,10 +52,9 @@ for f in raw/*; do
     echo "Testing $f"
     echo -n -e  "\x1b[0m"
     ts=$(date +%s%N)
-	(./wsort < $f) &> local_out
-    
+    (./wsort < $f) &> local_out
     tt=$((($(date +%s%N) - $ts) / 1000000))
-	echo -e "\x1B[36m$f local solution took: $tt ms"
+    echo -e "\x1B[36m$f local solution took: $tt ms"
     ts=$(date +%s%N)
     (./wsort-ref < $f) &> reference_out
     tt=$((($(date +%s%N) - $ts) / 1000000))
