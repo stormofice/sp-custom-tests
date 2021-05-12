@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# author: jzbor
+#
 
 CC_BLUE="\e[0;94m"
 CC_GREEN="\e[0;92m"
@@ -68,7 +71,7 @@ test_file () {
         && echo "=> No difference"
 }
 
-{ [ -d "./raw" ] && [ "$#" -gt 0 ]; } || die "no input files"
+[ -d "./raw" ] || [ "$#" -gt 0 ] || die "no input files"
 [ -e "./wsort" ] || die "no wsort"
 [ -e "./wsort-ref" ] || die "no wsort-ref"
 
