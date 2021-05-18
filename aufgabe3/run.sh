@@ -146,6 +146,8 @@ done
 echo -e $YELLOW
 echo "Passed $count out of $maxcount tests"
 
+echo -e -n $RESET
+
 rm local_out
 rm reference_out
 rm test.c
