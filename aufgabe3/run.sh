@@ -100,7 +100,6 @@ for f in .tests/*; do
         for x in $(eval echo {0..$max} )
         do
             seed=$(shuf -i 1-2147483648 -n 1)
-            echo -n -e "${RESET}Testing with seed: $seed"
             $(./test-ref $seed &> reference_out) 
             $(./test $seed &> local_out)
         
