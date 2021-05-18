@@ -33,7 +33,20 @@ echo -e -n $YELLOW
 if [ ! -d ".tests/" ]; then
     mkdir .tests
     echo "Downloading tests"
-    #wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/ -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_multiplication_overflow.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_calloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_null.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_reset_memory.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_big_fill.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_memory_clear.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_one_big_block.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_repeated_free.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_small_fill_overflow.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_small_fill.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_realloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/z_test_full_random.c -q --show-progress
 fi
 
 echo -e -n $RED
