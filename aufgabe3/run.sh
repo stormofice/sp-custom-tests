@@ -159,7 +159,7 @@ for f in .tests/*; do
     resetTest
 done
 
-echo -e $YELLOW
+echo -e -n $YELLOW
 echo "Passed $count out of $maxcount tests"
 
 echo -e -n $RESET
