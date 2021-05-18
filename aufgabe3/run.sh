@@ -105,13 +105,10 @@ for f in .tests/*; do
             $(./test $seed &> local_out)
         
             if [[ $(diff -q local_out reference_out) ]]; then
-                echo -e " : $RED[FAIL]"
+                echo -e "$seed : $RED[FAIL]"
                 echo -n -e $RESET
                 diff local_out reference_out
                 exit
-            else
-                echo -e -n " : $GREEN[PASS]; "
-                echo -n -e  $RESET
             fi
         
         done
