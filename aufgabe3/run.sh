@@ -28,11 +28,29 @@ int main(int argc, char const* argv[]) {
 
 resetTest
 
+
+echo -e -n $RED
+if [ ! -f halde-ref.o ]; then
+    echo "Couldn't find halde-ref.o, please provide the reference file"
+    exit
+fi
+if [ ! -f halde.h ]; then
+    echo "Couldn't find halde.h, please provide the reference header"
+    exit
+fi
+if [ ! -f halde.c ]; then
+    echo "Couldn't find halde.c, please provide your local solution"
+    exit
+fi
+
+echo -e -n $RESET
+
 echo -e -n $YELLOW
 
 if [ ! -d ".tests/" ]; then
     mkdir .tests
     echo "Downloading tests"
+    cd .tests
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_multiplication_overflow.c -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_calloc_simple.c -q --show-progress
@@ -47,20 +65,7 @@ if [ ! -d ".tests/" ]; then
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_small_fill.c -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_realloc_simple.c -q --show-progress
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/z_test_full_random.c -q --show-progress
-fi
-
-echo -e -n $RED
-if [ ! -f halde-ref.o ]; then
-    echo "Couldn't find halde-ref.o, please provide the reference file"
-    exit
-fi
-if [ ! -f halde.h ]; then
-    echo "Couldn't find halde.h, please provide the reference header"
-    exit
-fi
-if [ ! -f halde.c ]; then
-    echo "Couldn't find halde.c, please provide your local solution"
-    exit
+    cd ..
 fi
 
 echo -e -n $RESET
