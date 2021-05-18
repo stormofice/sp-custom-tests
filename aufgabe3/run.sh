@@ -11,7 +11,9 @@ echo -e "https://github.com/stormofice/sp-custom-tests"
 echo "If you encounter a bug and don't know why, check out the according file in .tests/"
 
 
-mv test.c test_backup.c
+if [ -f test.c ]; then
+    mv test.c test_backup.c
+fi
 
 resetTest() {
     echo -n "#include <stdio.h>
@@ -169,4 +171,6 @@ echo -e -n $RESET
 rm local_out
 rm reference_out
 rm test.c
-mv test_backup.c test.c
+if [ -f test_backup.c ]; then
+    mv test_backup.c test.c
+fi
