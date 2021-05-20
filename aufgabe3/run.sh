@@ -70,6 +70,13 @@ if [ ! -d ".tests/" ]; then
     cd ..
 fi
 
+if [[ "$(md5sum < .tests/test_calloc_reset.c)" != "c9b76becebf0f41e7b3d731d0921b21b  -" ]]; then
+    echo "Force redownload of new test"
+    cd .tests
+    rm test_calloc_reset.c
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
+    cd ..
+fi
 echo -e -n $RESET
 
 count=0
