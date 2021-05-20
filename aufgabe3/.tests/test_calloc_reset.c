@@ -15,7 +15,7 @@ void test() {
         temp[i] = i;
     free(temp);
     printList();
-    temp = calloc(1, 64);
+    temp = calloc(2, 32);
     printList();
     for (int i = 0; i < 64; i++) {
         if (temp[i] != 0) {
