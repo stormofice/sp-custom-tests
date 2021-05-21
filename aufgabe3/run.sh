@@ -12,7 +12,9 @@ echo "If you encounter a bug and don't know why, check out the according file in
 
 
 if [ -f test.c ]; then
-    mv test.c test_backup.c
+	if [ ! -f test_backup.c ]; then
+		mv test.c test_backup.c
+	fi
 fi
 
 resetTest() {
