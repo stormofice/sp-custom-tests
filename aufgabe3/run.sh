@@ -10,13 +10,6 @@ echo -e "$CYAN:=:=: [Custom Test] halde.c v1.0 :=:=:"
 echo -e "https://github.com/stormofice/sp-custom-tests"
 echo "If you encounter a bug and don't know why, check out the according file in .tests/"
 
-
-if [ -f test.c ]; then
-	if [ ! -f test_backup.c ]; then
-		mv test.c test_backup.c
-	fi
-fi
-
 resetTest() {
     echo -n "#include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +20,7 @@ resetTest() {
 int main(int argc, char const* argv[]) {
     test();
 }
-" > test.c
+" > custom_test.c
 }
 
 resetTest
@@ -92,17 +85,17 @@ for f in .tests/*; do
     
     echo -e -n $YELLOW
     echo "Testing $f"
-    sed "s+replace+$f+g" test.c > test_temp.c
-    mv test_temp.c test.c
+    sed "s+replace+$f+g" custom_test.c > test_temp.c
+    mv test_temp.c custom_test.c
     
     if [[ "$f" == *"random"* ]]; then
         echo "Initiating random test and running it 128 times [or until failure]"
         
-        sed "s+test();+test(atoi(argv[1]));+g" test.c > test_temp.c
-        mv test_temp.c test.c
+        sed "s+test();+test(atoi(argv[1]));+g" custom_test.c > test_temp.c
+        mv test_temp.c cusstom_test.c
         
-        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c test.c
-        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o test.c
+        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c custom_test.c
+        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
     
         max=127
 
@@ -110,7 +103,7 @@ for f in .tests/*; do
         do
             seed=$(shuf -i 1-2147483648 -n 1)
             $(./test-ref $seed &> reference_out) 
-            $(./test $seed &> local_out)
+            $(./custom_test $seed &> local_out)
         
             if [[ $(diff -q local_out reference_out) ]]; then
                 echo -e "$seed : $RED[FAIL]"
@@ -128,12 +121,12 @@ for f in .tests/*; do
     
     fi
     
-    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c test.c
-    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o test.c
+    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c custom_test.c
+    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
     
     echo -e -n $CYAN  
     ts=$(date +%s%N)
-    ./test &> local_out
+    ./custom_test &> local_out
     tt=$((($(date +%s%N) - $ts) / 1000000))
     sed 's/\x0//g' local_out > local_temp_out
     mv local_temp_out local_out
@@ -175,7 +168,4 @@ echo -e -n $RESET
 
 rm local_out
 rm reference_out
-rm test.c
-if [ -f test_backup.c ]; then
-    mv test_backup.c test.c
-fi
+rm custom_test.c
