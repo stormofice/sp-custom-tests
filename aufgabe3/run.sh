@@ -92,7 +92,7 @@ for f in .tests/*; do
         echo "Initiating random test and running it 128 times [or until failure]"
         
         sed "s+test();+test(atoi(argv[1]));+g" custom_test.c > test_temp.c
-        mv test_temp.c cusstom_test.c
+        mv test_temp.c custom_test.c
         
         gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c custom_test.c
         gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
@@ -121,7 +121,7 @@ for f in .tests/*; do
     
     fi
     
-    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test halde.h halde.c custom_test.c
+    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o custom_test halde.h halde.c custom_test.c
     gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
     
     echo -e -n $CYAN  
@@ -169,3 +169,4 @@ echo -e -n $RESET
 rm local_out
 rm reference_out
 rm custom_test.c
+rm custom_test
