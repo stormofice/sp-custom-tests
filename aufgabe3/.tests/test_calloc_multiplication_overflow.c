@@ -14,8 +14,10 @@ void test() {
     x = ~x;
     x |= 1;
     char* m1 = calloc(x, 2);
+
+    int errno_save = errno;
     printList();
-    if (m1 != NULL || errno != ENOMEM) {
+    if (m1 != NULL || errno_save != ENOMEM) {
         fprintf(stderr, "calloc did not handle multiplication overflow correctly");
         exit(EXIT_FAILURE);
     }
