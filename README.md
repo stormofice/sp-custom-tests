@@ -8,7 +8,11 @@ Please feel free to contribute, review or ask questions.
   * Navigate into the folder that contains `lilo.c`
   * Execute the following in a linux environment
   * `bash <(curl -s https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe1/run.sh)`
-* aufgab2:
+* aufgabe2:
   * Navigate into the folder that contains `wsort` or `wsort.c` and `wsort-ref`
   * Execute the following in a linux environment
   * `bash <(curl -s https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/run.sh)`
+* aufgabe3:
+  * Navigate into the folder that contains `halde.c`, `halde-ref.o`
+  * Execute the following in a linux environment
+  * `bash <(curl -s https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/run.sh)`
