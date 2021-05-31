@@ -18,9 +18,9 @@ void test() {
     memset(alloc_map, 0, sizeof(alloc_map));
 
     // malloc all to get the lowest address
-    char* low = my_malloc(MAX_MALLOC);
+    char* low = malloc(MAX_MALLOC);
     assert(low != NULL);
-    my_free(low);
+    free(low);
 
     for (int i = 0; i < 10000; i++) {
         if (rand() % 2) {  // malloc
@@ -30,7 +30,7 @@ void test() {
                 if (pointers[pi] == NULL) break;
             }
             if (pi < 20) {
-                pointers[pi] = my_malloc(request);
+                pointers[pi] = malloc(request);
                 sizes[pi] = request;
                 if (pointers[pi] != 0) {
                     // malloc successfull -> mark region
@@ -49,7 +49,7 @@ void test() {
                 for (;;) {
                     int pi = rand() % 20;
                     if (pointers[pi] != NULL) {
-                        my_free(pointers[pi]);
+                        free(pointers[pi]);
                         memset(alloc_map + (pointers[pi] - low), 0, sizes[pi]);
                         pointers[pi] = NULL;
                         break;
