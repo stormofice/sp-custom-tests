@@ -1,10 +1,18 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 #include "../halde.h"
 
-char* translate(int num) {
+// CONFIG
+// NOTE: As this does change the output to stderr (which the test checks for differences),
+// it could seem as if the test has passed even if it has not.
+_Bool doesPrintList = true;
+_Bool doesPrintCommands = false;
+_Bool doesPrintAdditionalInfo = true;
+
+char *translate(int num) {
     if (num == 0)
         return "malloc";
     else if (num == 1)
@@ -28,48 +36,52 @@ void test(unsigned int seed) {
     // Seed PRNG
     srand(seed);
 
-    char* blocks[ACTION_COUNT];
+    char *blocks[ACTION_COUNT];
     int allocatedBlocks = 0;
-    printList();
+    if (doesPrintList) printList();
     for (int i = 0; i < ACTION_COUNT; i++) {
         int random = rand() % 4;
         int multiplier = rand() % 10;
         int amount = (rand() % 256) * multiplier;
 
-        fprintf(stderr, "=== mode: %s, multiplier: %d, amount: %d, full: %d ===\n", translate(random), multiplier, amount, multiplier * amount);
+        if (doesPrintAdditionalInfo) fprintf(stderr, "=== mode: %s, multiplier: %d, amount: %d, full: %d ===\n", translate(random), multiplier, amount, multiplier * amount);
 
         switch (random) {
             case 0:;
                 if (SKIP_EMPTY_ALLOC && amount == 0)
                     continue;
-                blocks[allocatedBlocks] = (char*)malloc(amount);
+                blocks[allocatedBlocks] = (char *)malloc(amount);
+                if (doesPrintCommands) fprintf(stderr, "malloc(%d);\n", amount);
                 allocatedBlocks++;
                 break;
             case 1:;
                 if (SKIP_EMPTY_ALLOC && amount == 0)
                     continue;
-                blocks[allocatedBlocks] = (char*)calloc(1, amount);
+                blocks[allocatedBlocks] = (char *)calloc(1, amount);
+                if (doesPrintCommands) fprintf(stderr, "calloc(1,%d);\n", amount);
                 allocatedBlocks++;
                 break;
             case 2:;
                 if (allocatedBlocks == 0) {
-                    fprintf(stderr, "=== zero allocated, no realloc possible ===\n");
+                    if (doesPrintAdditionalInfo) fprintf(stderr, "=== zero allocated, no realloc possible ===\n");
                     continue;
                 }
                 int delta_block = rand() % allocatedBlocks;
-                blocks[delta_block] = (char*)realloc(blocks[delta_block], amount);
+                blocks[delta_block] = (char *)realloc(blocks[delta_block], amount);
+                if (doesPrintCommands) fprintf(stderr, "realloc(%d,%d);\n", **&blocks[delta_block], amount);
                 break;
             case 3:;
                 if (allocatedBlocks == 0) {
-                    fprintf(stderr, "=== zero allocated, no free possible ===\n");
+                    if (doesPrintAdditionalInfo) fprintf(stderr, "=== zero allocated, no free possible ===\n");
                     continue;
                 }
                 int free_block = rand() % allocatedBlocks;
                 free(blocks[free_block]);
+                if (doesPrintCommands) fprintf(stderr, "free(%d);\n", **&blocks[free_block]);
                 allocatedBlocks--;
                 break;
         }
-        printList();
+        if (doesPrintList) printList();
     }
-    printList();
+    if (doesPrintList) printList();
 }
