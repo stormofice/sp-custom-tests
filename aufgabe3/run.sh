@@ -72,6 +72,15 @@ if [[ "$(md5sum < .tests/test_calloc_reset.c)" != "c9b76becebf0f41e7b3d731d0921b
     wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
     cd ..
 fi
+
+if [ ! -f ".tests/test_free_bad_magic.c" ]; then
+    echo "Retrieving new tests"
+    cd .tests
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_bad_magic.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_disjoin.c -q --show-progress
+    cd ..
+fi
+
 echo -e -n $RESET
 
 count=0
