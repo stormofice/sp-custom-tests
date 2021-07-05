@@ -73,11 +73,11 @@ echo -e -n "$YELLOW"
 echo Testing "./creeper $path2$depth2$pattern2$type2"
 
 ts=$(date +%s%N)
-local_output=$(./creeper $path2$depth2$pattern2$type2 2>&1)
+local_output=$(stdbuf -oL ./creeper $path2$depth2$pattern2$type2 2>&1)
 tt=$((($(date +%s%N) - $ts) / 1000000))
 timelocal=$((timelocal+tt))
 ts=$(date +%s%N)    
-reference_output=$(./creeper-ref $path2 $depth2$pattern2$type2 2>&1)
+reference_output=$(stdbuf -oL ./creeper-ref $path2 $depth2$pattern2$type2 2>&1)
 tr=$((($(date +%s%N) - $ts) / 1000000))
 timeref=$((timeref+tr))
 echo -e -n "$CYAN"
