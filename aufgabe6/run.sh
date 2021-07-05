@@ -8,6 +8,7 @@ YELLOW='\033[0;33m'
 
 echo -e "$CYAN:=:=: [Custom Test] creeper.c v1.0 :=:=:"
 echo -e "https://github.com/stormofice/sp-custom-tests"
+echo -e "This might take a while, as the test duration depends on the size of various linux system folders (e.g. /usr/, /etc/, ...="
 
 echo -e -n $RED
 if [ ! -f creeper-ref ]; then
