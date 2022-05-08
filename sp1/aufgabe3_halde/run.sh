@@ -48,20 +48,20 @@ if [ ! -d ".tests/" ]; then
     mkdir .tests
     echo "Downloading tests"
     cd .tests
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_multiplication_overflow.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_calloc_simple.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_null.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_reset_memory.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_big_fill.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_memory_clear.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_one_big_block.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_repeated_free.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_simple.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_small_fill_overflow.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_small_fill.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_realloc_simple.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/z_test_full_random.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_calloc_multiplication_overflow.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_calloc_reset.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_calloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_free_null.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_free_reset_memory.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_big_fill.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_memory_clear.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_one_big_block.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_repeated_free.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_small_fill_overflow.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_small_fill.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_realloc_simple.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/z_test_full_random.c -q --show-progress
     cd ..
 fi
 
@@ -69,15 +69,15 @@ if [[ "$(md5sum < .tests/test_calloc_reset.c)" != "c9b76becebf0f41e7b3d731d0921b
     echo "Force redownload of new test"
     cd .tests
     rm test_calloc_reset.c
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_calloc_reset.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_calloc_reset.c -q --show-progress
     cd ..
 fi
 
 if [ ! -f ".tests/test_free_bad_magic.c" ]; then
     echo "Retrieving new tests"
     cd .tests
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_free_bad_magic.c -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe3/.tests/test_malloc_disjoin.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_free_bad_magic.c -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe3_halde/.tests/test_malloc_disjoin.c -q --show-progress
     cd ..
 fi
 

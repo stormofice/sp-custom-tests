@@ -16,7 +16,7 @@ int __wrap_main(int argc, const char* argv[]) {
     printf("https://github.com/stormofice/sp-custom-tests\n");
     printf(ORANGE "This does not test the order of your elements or the head variable due to limitations of this testing method\n");
     printf(RED "! While this test shouldn't alter/destroy anything, it may happen due to bugs !\n");
-    printf("! I do not take responsibilty for errors that may result of this !\n");
+    printf("! I do not take any responsibilty for errors that may result of this !\n");
 
     printf(ORANGE "Press any key to continue\n");
     if (argc <= 1) {

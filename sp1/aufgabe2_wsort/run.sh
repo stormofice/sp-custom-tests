@@ -26,11 +26,11 @@ else
     echo "Downloading raw word lists, this may take a while"
     mkdir raw
     cd raw
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/10_ascii_way_too_long -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_mixed -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_too_long -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_ascii_valid -q --show-progress
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/length_check -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/10_ascii_way_too_long -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/16k_ascii_mixed -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/16k_ascii_too_long -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/16k_ascii_valid -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/length_check -q --show-progress
     cd ..
 fi
 
@@ -41,7 +41,7 @@ if [ "raw/16k_unicode_sanitized" ]; then
 else
     cd raw
     echo "Downloading new words lists"
-    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/aufgabe2/raw/16k_unicode_sanitized -q --show-progress
+    wget https://raw.githubusercontent.com/stormofice/sp-custom-tests/main/sp1/aufgabe2_wsort/raw/16k_unicode_sanitized -q --show-progress
     cd ..
 fi
 
