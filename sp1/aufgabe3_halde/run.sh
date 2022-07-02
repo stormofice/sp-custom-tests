@@ -103,8 +103,8 @@ for f in .tests/*; do
         sed "s+test();+test(atoi(argv[1]));+g" custom_test.c > test_temp.c
         mv test_temp.c custom_test.c
         
-        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o custom_test halde.h halde.c custom_test.c
-        gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
+        gcc -std=c11 -pedantic -Wall -Werror -D_GNU_SOURCE -o custom_test halde.h halde.c custom_test.c
+        gcc -std=c11 -pedantic -Wall -Werror -D_GNU_SOURCE -o test-ref halde-ref.o custom_test.c
     
         max=127
 
@@ -130,8 +130,8 @@ for f in .tests/*; do
     
     fi
     
-    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o custom_test halde.h halde.c custom_test.c
-    gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700 -o test-ref halde-ref.o custom_test.c
+    gcc -std=c11 -pedantic -Wall -Werror -D_GNU_SOURCE -o custom_test halde.h halde.c custom_test.c
+    gcc -std=c11 -pedantic -Wall -Werror -D_GNU_SOURCE -o test-ref halde-ref.o custom_test.c
     
     echo -e -n $CYAN  
     ts=$(date +%s%N)
